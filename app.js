@@ -67,6 +67,7 @@ function removeAllTask() {
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
+  localStorage.clear()
 }
 function filterTasks(e) {
   document.querySelectorAll('.collection-item').forEach(function (item) {
