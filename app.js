@@ -47,6 +47,14 @@ function addTask(e) {
 function removeTask(e) {
   if (e.target.parentElement.classList.contains('delete-item')) {
     if (confirm('Are you sure?')) {
+      let tasks = localStorage.getItem('tasks');
+      tasks = JSON.parse(tasks);
+      tasks.forEach(function (task, index) {
+        if (task === e.target.parentElement.parentElement.textContent) {
+          tasks.splice(index, 1);
+        }
+      });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
       e.target.parentElement.parentElement.remove();
     }
   }
